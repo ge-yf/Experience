@@ -1,0 +1,57 @@
+1. sudo apt-get install zsh		#安装zsh
+2. zsh --version			#确认是否安装成功
+3. chsh -s /bin/zsh	 		#设置zsh为默认shell
+4. 注销重新登录
+5. echo $SHELL				#看一下shell是否已经切换到zsh
+6. sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+7. vim .zshrc				#打开配置文件
+8. 将ZSH_THEME修改为"ys"或者"agnoster"	#agnoster需要下载支持Powerline的字体
+9. 在plugins中追加 autojump mvn last-working-dir
+
+
+
+******************将zsh的用户名和主机名隐藏******************
+oh_my_zsh的主题和设置会被复制到主目录下，只要在终端输入
+
+ cd ~/.oh-my-zsh/themes
+然后输入
+echo $ZSH_THEME(或者从~/.zshrc中查看)
+查看自己主题，我的是agnoster，然后输入
+
+vi agnoster.zsh-theme
+可以看到最下面对build_prompt的定义为
+## Main prompt
+build_prompt() {
+ RETVAL=$?
+ prompt_status
+ prompt_virtualenv
+ prompt_context
+ prompt_dir
+ prompt_git
+ prompt_hg
+ prompt_end
+}
+
+build_prompt的定义像个结构体（实际是什么我不太懂），但agnoster.zsh-theme中对build_prompt里的每个成员都有定义，从prompt_context的定义
+
+# Context: user@hostname (who am I and where am I)
+prompt_context() {
+  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
+  fi
+}
+可以看出这个就是定义用户名和域名的地方，只要把build_prompt的定义修改为如下：
+## Main prompt
+build_prompt() {
+  RETVAL=$?
+  prompt_status
+  prompt_virtualenv
+ #prompt_context
+  prompt_dir
+  prompt_git
+  prompt_hg
+  prompt_end
+}
+即把prompt_context用#注释掉即可，以后需要修改其他东西也可到这里修改。
+
+******************************************************************

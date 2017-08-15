@@ -1,0 +1,2 @@
+打开chrome://net-internals/#dns 右上角有个箭头，下拉，
+需要点击Clear cache 和 Flush sockets 两项才能清除

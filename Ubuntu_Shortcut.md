@@ -2,6 +2,13 @@
 
 [http://www.cnblogs.com/nucdy/p/5251659.html](http://www.cnblogs.com/nucdy/p/5251659.html "Ubuntu Shotcut")
 
+
+全局快捷键:
+Files打开的状态下: Ctrl + L      显示当前路径
+Ctrl + Alt + <-/->              切换WorkSpace
+Ctrl + Windows + D              显示桌面
+
+
 | 快捷键        | 功能           |
 | :------------- |:-------------|
 | CTRL+ALT+T      | 打开终端 |
@@ -38,3 +45,4 @@
 | CTRL + SHIFT + PgUp/PgDn | 左右移动标签页 |
 | CTRL + PgUp/PgDn | 切换标签页 |
 | F10  | 激活菜单栏 |
+

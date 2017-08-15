@@ -1,0 +1,6 @@
+cloc也可以用来统计源代码的行数, 其本质是一个perl的脚本
+
+安装 : sudo apt-get install cloc
+使用,进入到需要统计的目录执行 : cloc .
+
+帮助: cloc --help

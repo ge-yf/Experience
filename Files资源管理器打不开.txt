@@ -1,0 +1,4 @@
+1. Terminal中执行：
+    ps -A | grep nautilus
+
+2.  sudo kill 刚才查询到的pid

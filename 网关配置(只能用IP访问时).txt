@@ -1,0 +1,32 @@
+1. 安装samba、winbind：
+sudo apt-get install samba winbind -y
+
+2. 修改配置文件/etc/samba/smb.conf* ：在Global Settings添加
+wins server = 172.26.10.91
+
+3. 修改配置文件/etc/nsswitch.conf：
+在host段添加wins
+
+4. 重启samba服务:
+sudo service smbd restart
+
+注：如果无法 ping 通网内主机，可尝试安装 libnss-winbind:
+sudo apt-get install samba libnss-winbind -y
+
+
+
+5. sudo vi /etc/resolv.conf
+	将nameserver配置为对应的IP(172.26.10.91)
+
+/etc/resolv.conf 其实只是一个link，它实际上指向的是 /run/resolvconf/resolv.conf，这也就解释了为什么每次重启都会被重写的原因，你改的只是个link，对原文件没有影响，而每次重启这个link还得加载原文件的内容，所以对link的修改无效。
+解决方法就是：修改真实的原文件，如下：
+
+6. sudo vi /etc/resolvconf/resolv.conf.d/head
+
+
+7. sudo vi /etc/NetworkManager/NetworkManager.conf
+        将[main]中的"dns=dnsmasq"修改为"dns=none"
+
+8. 配置当前连接的DNS Server:
+	桌面右上角联网图标,右键 -> Edit Connections -> Edit -> 
+        IPV4 Settings -> Additional DNS Servers -> 追加172.26.10.91
