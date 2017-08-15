@@ -1,10 +1,14 @@
-****************************删除目录及目录下所有文件****************************
+#### 删除目录及目录下所有文件 ####
 rm -rf 目录
 
-****************************改变权限****************************
+---
+
+#### 可读可写可执行权限 ####
 chmod -R 777 XXX
 
-****************************解压缩命令****************************
+---
+
+#### 解压缩命令 ####
 1、*.tar 用 tar -xvf 解压
 2、*.gz 用 gzip -d或者gunzip 解压
 3、*.tar.gz和*.tgz 用 tar -xzvf 解压
@@ -15,7 +19,9 @@ chmod -R 777 XXX
 8、*.rar 用 unrar e解压
 9、*.zip 用 unzip 解压
 
-****************************apt-get****************************
+---
+
+#### apt-get ####
 apt-get purge / apt-get –purge remove 
 删除已安装包（不保留配置文件)。 
 如软件包a，依赖软件包b，则执行该命令会删除a，而且不保留配置文件
@@ -32,7 +38,9 @@ APT的底层包是dpkg, 而dpkg 安装Package时, 会将 *.deb 放在 /var/cache
 apt-get clean 
 使用 apt-get clean 会将 /var/cache/apt/archives/ 的 所有 deb 删掉，可以理解为 rm /var/cache/apt/archives/*.deb。
 
-****************************  linux 局域网内文件传送(scp 命令) ****************************
+---
+
+#### linux 局域网内文件传送(scp 命令) #### 
 (一)从 远程 复制到 本地
 文件：
 scp remote_username@remote_ip:remote_file local_file(local_folder)
@@ -58,8 +66,10 @@ scp -r local_folder remote_username@remote_ip:remote_folder  #在命令执行后
 或
 scp -r local_folder remote_ip:remote_folder   #没有指定用户名，在命令执行后需要输入用户名和密码;
 
+---
 
-****************************添加或删除一个PPA源****************************
+
+#### 添加或删除一个PPA源 ####
 添加PPA源的命令为：
 sudo add-apt-repository ppa:user/ppa-name
 

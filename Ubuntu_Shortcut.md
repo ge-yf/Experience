@@ -1,13 +1,15 @@
+# 全局快捷键 #
+
+| 快捷键        | 功能           |
+| :------------- |:-------------|
+| Files打开的状态下: Ctrl + L |      显示当前路径|
+| Ctrl + Alt + ARROW    |          切换WorkSpace|
+|SHIFT + Ctrl + Alt + ARROW  |    将当前窗口在WorkSpace之间移动|
+|Ctrl + Windows + D        |      显示桌面|
+|F11      |        全屏|
+
+
 # Terminal #
-
-[http://www.cnblogs.com/nucdy/p/5251659.html](http://www.cnblogs.com/nucdy/p/5251659.html "Ubuntu Shotcut")
-
-
-全局快捷键:
-Files打开的状态下: Ctrl + L      显示当前路径
-Ctrl + Alt + <-/->              切换WorkSpace
-Ctrl + Windows + D              显示桌面
-
 
 | 快捷键        | 功能           |
 | :------------- |:-------------|
