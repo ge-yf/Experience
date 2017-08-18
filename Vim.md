@@ -38,3 +38,25 @@
 | CTRL + R | Redo the commands |
 | p | 将上一次删除的字符串插入到光标的后边 |
 | rx | 将光标处的字符替换为‘x’ |
+| ce | 将光标处到单词末尾删除，并切换到插入模式 |
+| cw | 将光标处到下一个单词的开头前删除，并切换到插入模式 |
+| c$ | 删除从光标处到行末的所有字符，并切换到插入模式 |
+| CTRL + g | 显示当前光标所在位置和文件状态 |
+| gg | 跳转到文件开头 |
+| G | 跳转到我文件末尾 |
+| nG | 跳转到文件的第N行 |
+| / | 正常模式下，输入‘/’，之后输入单词，可以搜索输入的单词，在搜索结果中，按n可以继续搜索下一个，按N可以反方向搜索 |
+| CTRL + o | 后退 |
+| CTRL + i | 前进 |
+| % | 在匹配的两个括号之间跳转 |
+| :s/oldString/newString/g | 命令模式下，输入“s/oldString/newString/” ，可以将当前行的第一个oldString替换为newString。结尾加“/g”的话，会替换当前行所有的oldSring|
+| :#,#s/oldString/newString/g | 将#行和#行之间的oldString替换为newString |
+| ：%s/oldString/newString/g | 将整个文件中所有的oldString替换为newString |
+| ：%s/oldString/newString/gc | 查找当前文件中所有的oldString，由用户决定是否删除数据 |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
+TODO Lesson5.1
