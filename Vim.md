@@ -51,8 +51,8 @@
 | % | 在匹配的两个括号之间跳转 |
 | :s/oldString/newString/g | 命令模式下，输入“s/oldString/newString/” ，可以将当前行的第一个oldString替换为newString。结尾加“/g”的话，会替换当前行所有的oldSring|
 | :#,#s/oldString/newString/g | 将#行和#行之间的oldString替换为newString |
-| ：%s/oldString/newString/g | 将整个文件中所有的oldString替换为newString |
-| ：%s/oldString/newString/gc | 查找当前文件中所有的oldString，由用户决定是否删除数据 |
+| :%s/oldString/newString/g | 将整个文件中所有的oldString替换为newString |
+| :%s/oldString/newString/gc | 查找当前文件中所有的oldString，由用户决定是否删除数据 |
 |  |  |
 |  |  |
 |  |  |
