@@ -1,3 +1,17 @@
+﻿
+在spf13下，使用vundle安装插件：
+1. 在~目录下新建一个“.vimrc.bundles.local”文件。
+2. 在文件中添加想安装的插件：
+	Bundle 'majutsushi/tagbar'
+3. 打开Vim， 在命令模式下输入“BundleInstall ”
+
+
+在spf13下，使用vundle卸载插件：
+1. 在~目录的“.vimrc.bundles.local”文件中，添加想要删除的插件：
+	UnBundle 'majutsushi/tagbar'
+2. 打开Vim， 在命令模式下输入“BundleClean”
+
+
 :BundleList -列举出列表中(.vimrc中)配置的所有插件
 :BundleInstall -安装列表中全部插件
 :BundleInstall! -更新列表中全部插件
@@ -7,8 +21,6 @@
 :BundleClean! -清除列表中没有的插件
 
 
-
-
 常用：
 Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/NERDTree'
+Bundle 'Xuyuanp/nerdtree-git-plugin'	--- 让NERDtree中显示Git信息(必须先安装NERDTree)
