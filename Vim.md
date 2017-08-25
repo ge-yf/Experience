@@ -1,6 +1,6 @@
 # Vim #
 
-#### 4种模式 ####
+## 4种模式 ##
 - 命令模式(command-mode)
 
 		正常模式下，按下"SHIFT + ;"      
@@ -22,7 +22,7 @@
 
 		任何模式下，按下Esc键即可返回正常模式
 
-#### 快捷键 ####
+## 快捷键 ##
 *命令前加‘n’，表示命令重复n次
 
 | Key | Function |
@@ -30,7 +30,7 @@
 | hjkl | 正常模式下，使用hjkl可以移动Cursor(左下右上) |
 | x | 正常模式下，按下x可以删除光标处的字符 |
 | dw | 正常模式下，将光标移动到单词首字母处，输入dw可以删除一个单词(到下一个单词的开头) |
-| de | 正常模式下，将光标移动到单词首字母处，输入dw可以删除一个单词(到当前单词的末尾) |
+| de | 正常模式下，将光标移动到单词首字母处，输入de可以删除一个单词(到当前单词的末尾) |
 | d$ | 正常模式下，删除从光标处到行末的所有字符 |
 | dd | 删除光标所在行 |
 | u | Undo the last commands |
@@ -53,10 +53,109 @@
 | :#,#s/oldString/newString/g | 将#行和#行之间的oldString替换为newString |
 | :%s/oldString/newString/g | 将整个文件中所有的oldString替换为newString |
 | :%s/oldString/newString/gc | 查找当前文件中所有的oldString，由用户决定是否删除数据 |
+| :! | 命令模式下，！后面可以输入外部Command，用来执行Shell命令 |
+| :w FILENAME | 作用一：将当前正在编辑的文件保存到当前目录下的FILENAME中。 作用二：在Visual模式下选择一段代码后，输入“w FLIENAME”， 可以将选中的内容保存到FILENAME中。|
+| :r FILENAME | 可以将FILENAME中的内容，插入到当前光标处 |
+|  |  |
+|  |  |
+
+TODO Lesson6.1
+
+
+----tmp---
+
+在buffers之间切换：
+Ctrl+6—下一个buffer
+:bf    第一个缓冲区
+:bl    最后一个缓冲区
+:bn    下一个文件(buffer next)
+:bp    上一个文件(buffer previous)
+:bn    切换到第n个缓冲区(如果不清楚缓冲区的number，可以通过buffers查询)
+
+查看缓冲区列表：
+:buffers(与ls相同)
+
+删除打开的缓冲区：
+bdn    删除第n个缓冲区(buffer delete n)
+
+----------
+
+翻页：
+
+整页翻页 ctrl-f ctrl-b
+f就是forword b就是backward
+
+翻半页
+ctrl-d ctlr-u
+d=down u=up
+
+滚一行  
+ctrl-e ctrl-y
+
+zz 让光标所杂的行居屏幕中央
+zt 让光标所杂的行居屏幕最上一行 t=top
+zb 让光标所杂的行居屏幕最下一行 b=bottom
+
+----------
+
+## 插件 ##
+
+> **< leader >在spf13中代表','** 
+
+#### NERDTree ####
+
+| Key | Function |
+| :------------- |:-------------|
+| ? | 将光标移动到NERDTree中，输入？即可打开快速帮助 |
+| CTRL+E | 以当前文件所在目录为根目录，启动NERDTREE |
+| < leader >e | 在正常模式下，输入“,e”, 作用与CTRL+E相同，但是输入较方便 |
+| Bookmark 书签名 | 将光标所在的路径添加为书签 |
+| D | 将光标移动到想要删除的书签上，输入‘D’ ，在屏幕下方会提示是否删除该书签，输入y即可删除|
+| NERDTree + 书签名 | 在Vim命令模式下如入。可以打开NERDTree中的书签 |
+| o | 打开一个目录或者打开文件，创建的是buffer，也可以用来打开书签 |
+| x | 收起当前打开的目录 |
+| X | 收起所有打开的目录 |
+| I | 显示或者不显示隐藏文件 |
+| q | 关闭NERDTree |
+
+#### CtrlP ####
+
+| Key | Function |
+| :------------- |:-------------|
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
 |  |  |
 |  |  |
 |  |  |
 |  |  |
 |  |  |
 
-TODO Lesson5.1
+
+#### Tagbar ####
+
+如果TagBar无法使用，则需要安装ctags：
+    
+
+    sudo apt-get install ctags
+
+| Key | Function |
+| :------------- |:-------------|
+| ,tt | 启动Tagbar |
+| p | 光标在选定的Tag上时，按下p可以跳转到指定tag，但是光标仍停留在TagBar中 |
+| 回车 | 光标在选定的Tag上时，按下p可以跳转到指定tag，光标也跟随 |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
