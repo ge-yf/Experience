@@ -1,5 +1,12 @@
 1. 把下载的Flatabulous-master.zip文件解压到"/usr/share/themes/"目录. 
 		(https://github.com/anmoljagetia/Flatabulous/archive/master.zip)
+
+	-----------
+	sudo add-apt-repository ppa:noobslab/themes
+	sudo apt-get update
+	sudo apt-get install flatabulous-theme
+	-----------
+
 2. 安装Icon主题(ultra-flat-icons):
 		sudo add-apt-repository ppa:noobslab/icons
 		sudo apt-get update
