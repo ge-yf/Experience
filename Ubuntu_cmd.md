@@ -21,6 +21,14 @@ chmod -R 777 XXX
 
 ---
 
+#### find命令 ####
+find [dir] -iname "*dab*"
+搜索dir目录下， 所有包含dab的文件名，忽略大小写。
+
+
+---
+
+
 #### apt-get ####
 apt-get purge / apt-get –purge remove 
 删除已安装包（不保留配置文件)。 
