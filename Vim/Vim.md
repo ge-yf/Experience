@@ -203,7 +203,18 @@ sudo apt-get install ctags
 
 #### Ag ####
 首先需要安装：
+
 	sudo apt-get install silversearcher-ag
+
+搜索字符串：
+
+	:Ag[!] [options] {pattern} [{directory}] 	在给定的directory中搜索pattern
+
+	:AgBuffer[!] [options] {pattern} 			在打开的buffers中搜索pattern
+
+	:AgFromSearch [{directory}]					以上一次搜索的pattern，再次在directory中搜索 
+
+	:AgFile [options] {pattern} [{directory}]	在directory中搜索复合pattern的文件名。 
 
 | Key | Function |
 | :------------- |:-------------|
