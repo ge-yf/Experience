@@ -167,9 +167,28 @@ zb 让光标所杂的行居屏幕最下一行 b=bottom
 |  |  |
 
 
+#### ctags ####
+
+安装(Exuberant Ctags):
+sudo apt-get install ctags
+
+1. 在代码根目录执行(每次): 
+	[ctags -R --c++-kinds=+px --fields=+iaS --extra=+q 目录], 之后会在当前目录生成所有代码的tag文件.
+2. 在.vimrc文件中添加:
+	set tags=./tags,tags;
+
+| Key | Function |
+| :------------- |:-------------|
+| Ctrl + [ | 跳转到定义(如果结果有多个的话, 仅会跳转到第一个,这时就要使用ts来搜索了) |
+| ts name | 列出所有name的定义 |
+|  |  |
+|  |  |
+|  |  |
+
+
 #### Tagbar ####
 
-如果TagBar无法使用，则需要安装ctags：
+如果TagBar无法使用，则需要安装ctags(Exuberant Ctags)：
     
 
     sudo apt-get install ctags
@@ -177,13 +196,9 @@ zb 让光标所杂的行居屏幕最下一行 b=bottom
 | Key | Function |
 | :------------- |:-------------|
 | ,tt | 启动Tagbar |
+| o | 打开或关闭光标所在位置的目录																																																																																																																										 |
 | p | 光标在选定的Tag上时，按下p可以跳转到指定tag，但是光标仍停留在TagBar中 |
 | 回车 | 光标在选定的Tag上时，按下p可以跳转到指定tag，光标也跟随 |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
 
 
 #### Ag ####
