@@ -25,4 +25,26 @@
 		4. 执行命令 “fc-cache -f -v”
 
 
+# 使用前 #
+`<c-h>t`命令, 查看tutorial, 学会基本用法。
+
 # 使用 #
+
+显示行号：
+.spacemacs文件中查找dotspacemacs-line-numbers。
+默认配置为：
+dotspacemacs-line-numbers nil
+修改为：
+dotspacemacs-line-numbers t
+重启就显示行号了。
+
+
+| Key | Func |
+| :------- | :------- |
+| C-x C-c | 退出Emacs |
+| C-g | 退出输入了一部分的Command |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
