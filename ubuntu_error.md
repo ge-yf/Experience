@@ -20,3 +20,9 @@
 
 执行完上述命令之后再次运行sudo apt-get update就不会再出现上面的错误。
 
+**Error Report com.ubuntu.apport.apport-gtk-root**
+
+vim /etc/init/apport.conf 内容你会发现，控制此服务是否启动的是/etc/default/apport
+所以把/etc/default/apport的enabled修改为0就ok了。
+
+    sudo vi /etc/default/apport 

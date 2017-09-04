@@ -1,4 +1,4 @@
-1. sudo apt-get install zsh		#安装zsh
+﻿1. sudo apt-get install zsh		#安装zsh
 2. zsh --version			#确认是否安装成功
 3. chsh -s /bin/zsh	 		#设置zsh为默认shell
 4. 注销重新登录
@@ -7,6 +7,29 @@
 7. vim .zshrc				#打开配置文件
 8. 将ZSH_THEME修改为"ys"或者"agnoster"	#agnoster需要下载支持Powerline的字体
 9. 在plugins中追加 autojump mvn last-working-dir
+
+
+***********************安装Powerline字体************************
+git clone http://github.com/powerline/fonts
+
+安装完成后，为该目录加个权限：
+chmod 755 fonts
+
+直接：
+fc-cache -fv fonts
+
+修改终端配置
+将终端的字体修改为Powerline：
+Source Code Pro for Powerline Regular  字号13
+
+Colors中，将Text and Background Color修改为:
+Solarized dark
+
+Built-in schemes修改为：
+Tango
+
+
+******************************************************************
 
 
 
