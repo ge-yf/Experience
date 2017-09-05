@@ -38,6 +38,9 @@ dotspacemacs-line-numbers nil
 dotspacemacs-line-numbers t
 重启就显示行号了。
 
+编辑风格 :
+.spacemacs文件中查找dotspacemacs-editing-style.
+
 
 | Key | Func |
 | :------- | :------- |

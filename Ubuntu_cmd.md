@@ -28,6 +28,25 @@ find [dir] -iname "*dab*"
 
 ---
 
+#### fasd命令 ####
+
+GitHub: https://github.com/clvv/fasd
+
+安装:
+$ sudo add-apt-repository ppa:aacebedo/fasd
+$ sudo apt-get update
+$ sudo apt-get install fasd
+
+配置:
+在.zshrc文件中追加:
+eval "$(fasd --init auto)"
+
+使用:
+
+
+
+
+---
 
 #### apt-get ####
 apt-get purge / apt-get –purge remove 
