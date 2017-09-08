@@ -9,6 +9,19 @@ chmod -R 777 XXX
 ---
 
 #### 解压缩命令 ####
+
+
+1.分卷压缩
+tar cvzpf - eclipse | split -d -b 50m
+上面的命令是将eclipse这个文件夹分卷压缩，每卷50m，注意eclipse 前面有空格.压缩完之后，会被命名为x00,x01,x02。。。
+2.解压
+首先需要合并： 合并的命令是：
+cat x*>eclipse.tar.gz
+然后解压：
+tar xzvf eclipse.tar.gz
+
+
+
 1、*.tar 用 tar -xvf 解压
 2、*.gz 用 gzip -d或者gunzip 解压
 3、*.tar.gz和*.tgz 用 tar -xzvf 解压
