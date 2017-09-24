@@ -195,6 +195,8 @@ sudo apt-get install ctags
 
     sudo apt-get install ctags
 
+之后重新BundleInstall， TagBar就可以使用了。
+
 | Key | Function |
 | :------------- |:-------------|
 | ,tt | 启动Tagbar |

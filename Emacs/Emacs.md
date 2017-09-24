@@ -46,8 +46,30 @@ dotspacemacs-line-numbers t
 | :------- | :------- |
 | C-x C-c | 退出Emacs |
 | C-g | 退出输入了一部分的Command |
+| C-v | 向下滚动一屏 |
+| M-v | 向上滚动一屏 |
+| C-l | 将光标所在行置于屏幕中央(多次按下C-l时， 按照中->上->下->中的顺序循环) |
+| C-p | previous 上一行|
+| C-n | next 下一行 |
+| C-f | forwawrd 向右移动一个字符 |
+| C-b | backward 向左移动一个字符 |
 |  |  |
 |  |  |
 |  |  |
 |  |  |
 |  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
+
+**字体大小的调整**
+
+- 放大字体: Ctrl-x Ctrl-+ 或 Ctrl-x Ctrl-=
+- 缩小字体: Ctrl-x Ctrl–
+- 重置字体: Ctrl-x Ctrl-0
