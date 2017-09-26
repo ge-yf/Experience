@@ -53,7 +53,9 @@ dotspacemacs-line-numbers t
 | C-n | next 下一行 |
 | C-f | forwawrd 向右移动一个字符 |
 | C-b | backward 向左移动一个字符 |
-|  |  |
+| M-f | forwawrd 向右移动一个word |
+| M-b | backward 向左移动一个word |
+| C-_ | Ctrl+Shift+- 撤销 |
 |  |  |
 |  |  |
 |  |  |
