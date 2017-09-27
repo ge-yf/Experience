@@ -42,10 +42,18 @@ dotspacemacs-line-numbers t
 .spacemacs文件中查找dotspacemacs-editing-style.
 
 
+
+编辑:
 | Key | Func |
 | :------- | :------- |
 | C-x C-c | 退出Emacs |
 | C-g | 退出输入了一部分的Command |
+| C-_ | Ctrl+Shift+- 撤销 |
+
+
+光标移动:
+| Key | Func |
+| :------- | :------- |
 | C-v | 向下滚动一屏 |
 | M-v | 向上滚动一屏 |
 | C-l | 将光标所在行置于屏幕中央(多次按下C-l时， 按照中->上->下->中的顺序循环) |
@@ -55,12 +63,19 @@ dotspacemacs-line-numbers t
 | C-b | backward 向左移动一个字符 |
 | M-f | forwawrd 向右移动一个word |
 | M-b | backward 向左移动一个word |
-| C-_ | Ctrl+Shift+- 撤销 |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| C-e | 移动到行尾 |
+| C-a | 移动到行首 |
+| M-e | 移动到句尾 |
+| M-a | 移动到句首 |
+| M-< | 移动到文件首(ALT+SHIFT+,) |
+| M-> | 移动到文件尾(ALT+SHIFT+.) |
+
+
+
+其它:
+| Key | Func |
+| :------- | :------- |
+| C-u Num Command | 重复Command Num次, 例如[C-u 8 C-n], 向下移动8行 |
 |  |  |
 |  |  |
 |  |  |
