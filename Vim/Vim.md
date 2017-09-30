@@ -63,10 +63,10 @@
 | CTRL + o | 后退 |
 | CTRL + i | 前进 |
 | % | 在匹配的两个括号之间跳转 |
-| :s/oldString/newString/g | 命令模式下，输入“s/oldString/newString/” ，可以将当前行的第一个oldString替换为newString。结尾加“/g”的话，会替换当前行所有的oldSring|
+| :s/oldString/newString/g | 命令模式下，输入“s/oldString/newString/” ，可以将当前行的第一个oldString替换为newString。结尾加“g”的话，会替换当前行所有的oldSring|
 | :#,#s/oldString/newString/g | 将#行和#行之间的oldString替换为newString |
 | :%s/oldString/newString/g | 将整个文件中所有的oldString替换为newString |
-| :%s/oldString/newString/gc | 查找当前文件中所有的oldString，由用户决定是否删除数据 |
+| :%s/oldString/newString/gc | 查找当前文件中所有的oldString，由用户决定是否替换数据 |
 | :! | 命令模式下，！后面可以输入外部Command，用来执行Shell命令 |
 | :w FILENAME | 作用一：将当前正在编辑的文件保存到当前目录下的FILENAME中。 作用二：在Visual模式下选择一段代码后，输入“w FLIENAME”， 可以将选中的内容保存到FILENAME中。|
 | :r FILENAME | 可以将FILENAME中的内容，插入到当前光标处 |
@@ -75,6 +75,7 @@
 | a | 在光标之后， 进入编辑模式 |
 | A | 在行尾进入编辑模式 |
 | zc | 关闭文件中的折叠 |
+| :f | 查看当前编辑的文件名 |
 
 ----tmp---
 
