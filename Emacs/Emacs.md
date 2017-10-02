@@ -3,6 +3,8 @@
 
 # 安装 #
 1. 安装Emacs:
+	sudo add-apt-repository ppa:kelleyk/emacs
+	sudo apt update
 
 	sudo apt-get install emacs
 
@@ -17,7 +19,7 @@
 	
 	*在安装插件时， 如果有安装不成功的，就关掉Emacs再重开，就会自动重新安装。
 	
-	*如果提示"Cannot find any of the specified fonts (Source Code Pro)! Font settings may not be correct. "，就需要手动安装Source Code Pro字体。
+	*如果提示"Cannot find any of the specified fonts (Source Code Pro)! Font settings may not be correct. "，就需要手动安装Source Code Pro字体(zsh)。
 		
 		1.下载最新的Source code pro字体(https://github.com/adobe-fonts/source-code-pro/downloads)
 		2. unzip SourceCodePro_FontsOnly-1.013.zip

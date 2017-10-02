@@ -10,10 +10,12 @@
 
 
 ***********************安装Powerline字体************************
-git clone http://github.com/powerline/fonts
+1. git clone http://github.com/powerline/fonts
+2. cd fonts
+3. ./install.sh
 
 安装完成后，为该目录加个权限：
-chmod 755 fonts
+chmod 777 fonts
 
 直接：
 fc-cache -fv fonts
@@ -26,7 +28,7 @@ Colors中，将Text and Background Color修改为:
 Solarized dark
 
 Built-in schemes修改为：
-Tango
+Tango or xTerm
 
 
 ******************************************************************
@@ -34,47 +36,8 @@ Tango
 
 
 ******************将zsh的用户名和主机名隐藏******************
-oh_my_zsh的主题和设置会被复制到主目录下，只要在终端输入
+通过在~/.zshrc中添加export DEFAULT_USER=”username”可以隐藏固定的user@hostname信息
 
- cd ~/.oh-my-zsh/themes
-然后输入
-echo $ZSH_THEME(或者从~/.zshrc中查看)
-查看自己主题，我的是agnoster，然后输入
-
-vi agnoster.zsh-theme
-可以看到最下面对build_prompt的定义为
-## Main prompt
-build_prompt() {
- RETVAL=$?
- prompt_status
- prompt_virtualenv
- prompt_context
- prompt_dir
- prompt_git
- prompt_hg
- prompt_end
-}
-
-build_prompt的定义像个结构体（实际是什么我不太懂），但agnoster.zsh-theme中对build_prompt里的每个成员都有定义，从prompt_context的定义
-
-# Context: user@hostname (who am I and where am I)
-prompt_context() {
-  if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
-  fi
-}
-可以看出这个就是定义用户名和域名的地方，只要把build_prompt的定义修改为如下：
-## Main prompt
-build_prompt() {
-  RETVAL=$?
-  prompt_status
-  prompt_virtualenv
- #prompt_context
-  prompt_dir
-  prompt_git
-  prompt_hg
-  prompt_end
-}
-即把prompt_context用#注释掉即可，以后需要修改其他东西也可到这里修改。
+export DEFAULT_USER=`geyf` // 在.zshrc中添加或者修改默认用户为自己，开启终端后就不会显示自己的用户名信息  
 
 ******************************************************************
