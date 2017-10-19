@@ -62,25 +62,25 @@ eval "$(fasd --init auto)"
 ---
 
 #### apt-get ####
-apt-get purge / apt-get –purge remove 
-删除已安装包（不保留配置文件)。 
+apt-get purge / apt-get –purge remove
+删除已安装包（不保留配置文件)。
 如软件包a，依赖软件包b，则执行该命令会删除a，而且不保留配置文件
 
-apt-get autoremove 
+apt-get autoremove
 删除为了满足依赖而安装的，但现在不再需要的软件包（包括已安装包），保留配置文件。
 
-apt-get remove 
+apt-get remove
 删除已安装的软件包（保留配置文件），不会删除依赖软件包，且保留配置文件。
 
-apt-get autoclean 
+apt-get autoclean
 APT的底层包是dpkg, 而dpkg 安装Package时, 会将 *.deb 放在 /var/cache/apt/archives/中，apt-get autoclean 只会删除 /var/cache/apt/archives/ 已经过期的deb。
 
-apt-get clean 
+apt-get clean
 使用 apt-get clean 会将 /var/cache/apt/archives/ 的 所有 deb 删掉，可以理解为 rm /var/cache/apt/archives/*.deb。
 
 ---
 
-#### linux 局域网内文件传送(scp 命令) #### 
+#### linux 局域网内文件传送(scp 命令) ####
 (一)从 远程 复制到 本地
 文件：
 scp remote_username@remote_ip:remote_file local_file(local_folder)
@@ -110,10 +110,11 @@ scp -r local_folder remote_ip:remote_folder   #没有指定用户名，在命令
 
 
 #### 添加或删除一个PPA源 ####
+
 添加PPA源的命令为：
 sudo add-apt-repository ppa:user/ppa-name
 
-添加好更新一下： 
+添加好更新一下：
 sudo apt-get update
 
 删除命令格式则为：
