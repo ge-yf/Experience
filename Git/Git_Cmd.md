@@ -43,3 +43,16 @@
 
 在应用时， 使用`git apply patch`来应用patch。
 
+**Git patch**
+
+打patch:
+
+    'git format-patch -s [Hash code]'
+    'git format-patch HEAD^ <==最近的1次commit的patch'
+    'git format-patch HEAD^^ <==最近的2次commit的patch'
+    'git format-patch HEAD^ <==最近的3次commit的patch'
+    'git format-patch HEAD^ <==最近的4次commit的patch'
+
+应用patch:
+
+    git am [patch名]
