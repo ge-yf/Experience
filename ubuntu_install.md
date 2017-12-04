@@ -1,10 +1,14 @@
 # Unity Tweak Tool #
 
+	仅适用于Unity环境
+
     sudo add-apt-repository ppa:freyja-dev/unity-tweak-tool-daily
     sudo apt-get update
     sudo apt-get install unity-tweak-tool
 
 # Flatabulous theme and ultra-flag icons #
+
+	仅适用于Unity环境
 
 	sudo add-apt-repository ppa:noobslab/themes
 	sudo add-apt-repository ppa:noobslab/icons
