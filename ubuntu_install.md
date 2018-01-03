@@ -54,4 +54,7 @@ Requires Git 1.7+ and Vim 7.3+
 
 	C++手册
 	sudo apt-get install cppman
+
+# mlocate #
 	
+	TODO
