@@ -49,3 +49,9 @@ Requires Git 1.7+ and Vim 7.3+
 
 	add the follow line in .zshrc
 		sudo apt-get install fasd
+
+# cppman #
+
+	C++手册
+	sudo apt-get install cppman
+	
