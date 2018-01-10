@@ -242,3 +242,18 @@ sudo apt-get install ctags
 |v |   to open in vertical split|
 |gv |  to open in vertical split silently|
 |q |   to close the quickfix window|
+
+
+#### vimdiff ####
+
+垂直打开: vimdiff point.c point-a.c
+水平打开: vimdiff -o point.c point-a.c
+
+| Key | Function |
+| :------------- |:-------------|
+|]c |跳转到下一个不同|
+|[c |跳转到上一个不同|
+|do |用另外一个窗口的不同处替换当前|
+|dp |用当前替换另外一个窗口的不同处|
+
+

@@ -9,7 +9,7 @@
 6. 最后， `git push`推送提交的更改。
 
 
-#### 将错误的修改恢复： ####
+#### 将错误的修改恢复 ####
 
 恢复单个文件：
 
@@ -56,3 +56,13 @@
 应用patch:
 
     git am [patch名]
+
+
+#### 配置difftool ####
+
+// 将difftool修改为beyond compare
+git  config  --global   diff.tool   bc
+
+// 取消每次的提示
+git  config  --global  difftool.prompt  false
+
