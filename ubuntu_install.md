@@ -31,7 +31,7 @@ Requires Git 1.7+ and Vim 7.3+
 
 # zsh #
 
-	zsh 配置.txt
+	zsh.txt
 
 # ag #
 
@@ -56,5 +56,5 @@ Requires Git 1.7+ and Vim 7.3+
 	sudo apt-get install cppman
 
 # mlocate #
-	
+
 	TODO

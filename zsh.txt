@@ -28,11 +28,68 @@ Colors中，将Text and Background Color修改为:
 Solarized dark
 
 Built-in schemes修改为：
-Tango or xTerm
-
+Solarized
 
 ******************************************************************
 
+*****************************增加语法高亮**************************
+1、下载zsh-syntax-highlighting插件
+
+cd ~/.oh-my-zsh/custom/plugins
+git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+
+2、在.zshrc中增加配置(在plugins中追加'zsh-syntax-highlighting')
+
+plugins=( [plugins...] zsh-syntax-highlighting)
+
+
+3、读取配置及时生效
+
+source ~/.zshrc
+
+******************************************************************
+
+***************************增加directory高亮***********************
+
+1. 首先设置solarized theme for GNU ls，不然在 Terminal 下 ls 啥的都灰蒙蒙的，也不舒服：
+
+git clone git://github.com/seebi/dircolors-solarized.git
+cp ~/dircolors-solarized/dircolors.256dark ~/.dircolors
+eval 'dircolors .dircolors'
+
+设置 Terminal 支持 256 色，
+vim .zshrc 并添加 export TERM=xterm-256color，
+这样 dircolors for GNU ls 算设置完成了。
+
+别忘了再 source .bashrc
+
+2. 下载 Solarized 的 Gnome-Terminal 配色：
+
+git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git
+
+下载完成后运行如下命令
+
+cd gnome-terminal-colors-solarized
+
+到该目录下运行配色脚本：./set_dark.sh 或./set_light.sh
+
+
+3. 将下面额code追加到[.zshrc]中：
+-------------
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=always'
+    alias dir='dir --color=always'
+    alias vdir='vdir --color=always'
+
+    alias grep='grep --color=always'
+    alias fgrep='fgrep --color=always'
+    alias egrep='egrep --color=always'
+fi
+-------------
+
+******************************************************************
 
 ******************将zsh的用户名和主机名隐藏******************
 通过在~/.zshrc中添加export DEFAULT_USER=”username”可以隐藏固定的user@hostname信息
