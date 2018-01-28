@@ -9,18 +9,18 @@
 	sudo apt-get install emacs
 
 2. 安装Spacemacs：
-	
+
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 
 3. 运行Emacs GUI, 之后Spacemacs会提示选择一些信息后，自动开始安装插件。
 
 	*选择Vim兼容模式。
-	
+
 	*在安装插件时， 如果有安装不成功的，就关掉Emacs再重开，就会自动重新安装。
-	
+
 	*如果提示"Cannot find any of the specified fonts (Source Code Pro)! Font settings may not be correct. "，就需要手动安装Source Code Pro字体(zsh)。
-		
+
 		1.下载最新的Source code pro字体(https://github.com/adobe-fonts/source-code-pro/downloads)
 		2. unzip SourceCodePro_FontsOnly-1.013.zip
 		3. 复制SourceCodePro_FontsOnly-1.013/OTF目录中的所有.otf文件到~/.fonts目录下
@@ -72,7 +72,15 @@ dotspacemacs-line-numbers t
 | M-< | 移动到文件首(ALT+SHIFT+,) |
 | M-> | 移动到文件尾(ALT+SHIFT+.) |
 
-
+插入与删除：
+| Key | Func |
+| :------- | :------- |
+| C-d | 删除光标后的第一个字符（如果是矩形光标，就是光标所在处的字符） |
+| M-DEL | 删除光标前的第一个Word |
+| M-d | 删除光标后的第一个Word |
+| C-k | Kill |
+|  |  |
+|  |  |
 
 其它:
 | Key | Func |
