@@ -159,7 +159,7 @@ zb 让光标所杂的行居屏幕最下一行 b=bottom
 
 | Key | Function |
 | :------------- |:-------------|
-|  |  |
+| CtrlPBookmarkDir -> <C-z>标记要删除的Bookmark -> F7   | 删除Bookmark |
 |  |  |
 |  |  |
 |  |  |

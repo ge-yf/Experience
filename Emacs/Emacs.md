@@ -50,7 +50,7 @@ dotspacemacs-line-numbers t
 | :------- | :------- |
 | C-x C-c | 退出Emacs |
 | C-g | 退出输入了一部分的Command |
-| C-_ | Ctrl+Shift+- 撤销 |
+| C-/ (C-_) |  撤销 (Ctrl+Shift+-) |
 
 
 光标移动:
@@ -78,15 +78,15 @@ dotspacemacs-line-numbers t
 | C-d | 删除光标后的第一个字符（如果是矩形光标，就是光标所在处的字符） |
 | M-DEL | 删除光标前的第一个Word |
 | M-d | 删除光标后的第一个Word |
-| C-k | Kill |
-|  |  |
+| C-k | Kill从光标处到行尾的内容 |
+| M-k | kill直到句子末尾 |
 |  |  |
 
 其它:
 | Key | Func |
 | :------- | :------- |
 | C-u Num Command | 重复Command Num次, 例如[C-u 8 C-n], 向下移动8行 |
-|  |  |
+| M-x "set-mark-command" + C-w/M-w | M-x后输入"set-mark-command", 选择mark的区域, 之后C-w剪切/M-w复制 |
 |  |  |
 |  |  |
 |  |  |

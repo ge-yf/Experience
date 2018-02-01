@@ -63,6 +63,22 @@ git log -G"你要查找的文本内容" -p
 
     git am [patch名]
 
+#### 暂存不想提交的代码 ####
+
+$git stash
+$do some work
+$git stash pop
+
+进阶:
+git stash          # save uncommitted changes
+# pull, edit, etc.
+git stash list     # list stashed changes in this git
+git show stash@{0} # see the last stash 
+git stash pop      # apply last stash and remove it from the list
+
+git stash --help   # for more info
+
+git stash clear	   # clear the stash stack
 
 #### 配置difftool ####
 
