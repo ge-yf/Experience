@@ -43,7 +43,8 @@ dotspacemacs-line-numbers t
 编辑风格 :
 .spacemacs文件中查找dotspacemacs-editing-style.
 
-
+字体大小：
+.spacemacs文件中查找dotsspacemacs-default-font, 将大小修改为18
 
 编辑:
 | Key | Func |
@@ -51,6 +52,9 @@ dotspacemacs-line-numbers t
 | C-x C-c | 退出Emacs |
 | C-g | 退出输入了一部分的Command |
 | C-/ (C-_) |  撤销 (Ctrl+Shift+-) |
+| C-x C-f | 打开（新建）文件 |
+| C-x C-s | 保存文件 |
+| C-x C-b | 列出所有buffer |
 
 
 光标移动:
@@ -82,6 +86,7 @@ dotspacemacs-line-numbers t
 | M-k | kill直到句子末尾 |
 |  |  |
 
+
 其它:
 | Key | Func |
 | :------- | :------- |
@@ -92,7 +97,9 @@ dotspacemacs-line-numbers t
 |  |  |
 |  |  |
 |  |  |
-|  |  |
+|  |  
+
+
 
 
 **字体大小的调整**
