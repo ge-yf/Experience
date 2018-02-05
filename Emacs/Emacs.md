@@ -46,6 +46,10 @@ dotspacemacs-line-numbers t
 字体大小：
 .spacemacs文件中查找dotsspacemacs-default-font, 将大小修改为18
 
+切换Emacs自带输入法:
+c+\ 然后输入chinese-py, 可以输入了。
+c-\ 可以切换回去。
+
 编辑:
 | Key | Func |
 | :------- | :------- |
@@ -75,6 +79,7 @@ dotspacemacs-line-numbers t
 | M-a | 移动到句首 |
 | M-< | 移动到文件首(ALT+SHIFT+,) |
 | M-> | 移动到文件尾(ALT+SHIFT+.) |
+| M-数字     | 切换光标到指定窗口                                                              |
 
 插入与删除：
 | Key | Func |
@@ -97,7 +102,7 @@ dotspacemacs-line-numbers t
 |  |  |
 |  |  |
 |  |  |
-|  |  
+|  |  |
 
 
 
@@ -107,3 +112,16 @@ dotspacemacs-line-numbers t
 - 放大字体: Ctrl-x Ctrl-+ 或 Ctrl-x Ctrl-=
 - 缩小字体: Ctrl-x Ctrl–
 - 重置字体: Ctrl-x Ctrl-0
+
+# 插件 #
+
+Neo Tree:
+| Key      | Func                                |
+| :------- | :-------                            |
+| M-M f t  | 打开Neo Tree窗口                    |
+| SPC      | 在Neo Tree窗口中,打开指定目录或文件 |
+| n        | 下一行                              |
+| p        | 上一行                              |
+| g        | Refresh                             |
+| H        | show/hide hidden files/directory    |
+|          |                                     |
