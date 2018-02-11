@@ -50,7 +50,7 @@ dotspacemacs-line-numbers t
 c+\ 然后输入chinese-py, 可以输入了。
 c-\ 可以切换回去。
 
-编辑:
+文件操作:
 | Key | Func |
 | :------- | :------- |
 | C-x C-c | 退出Emacs |
@@ -58,7 +58,10 @@ c-\ 可以切换回去。
 | C-/ (C-_) |  撤销 (Ctrl+Shift+-) |
 | C-x C-f | 打开（新建）文件 |
 | C-x C-s | 保存文件 |
+| C-x s | 保存buffer |
 | C-x C-b | 列出所有buffer |
+| C-x b | 在buffer之间切换 |
+| M-x "recover-file" | 在crash之后恢复之前编辑的文件 |
 
 
 光标移动:
