@@ -58,6 +58,10 @@ eval "$(fasd --init auto)"
 
 
 
+#### apt-get ####
+查看U盘大小:
+df -lh
+
 
 ---
 
