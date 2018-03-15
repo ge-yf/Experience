@@ -50,6 +50,13 @@ dotspacemacs-line-numbers t
 c+\ 然后输入chinese-py, 可以输入了。
 c-\ 可以切换回去。
 
+修改缩进：
+在setq-default的最后追加：
+indent-tabs-mode nil
+default-tab-width 4
+c-default-style "k&r"
+c-basic-offset 4
+
 文件操作:
 | Key | Func |
 | :------- | :------- |
