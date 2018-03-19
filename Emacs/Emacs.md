@@ -15,8 +15,6 @@
 
 3. 运行Emacs GUI, 之后Spacemacs会提示选择一些信息后，自动开始安装插件。
 
-	*选择Vim兼容模式。
-
 	*在安装插件时， 如果有安装不成功的，就关掉Emacs再重开，就会自动重新安装。
 
 	*如果提示"Cannot find any of the specified fonts (Source Code Pro)! Font settings may not be correct. "，就需要手动安装Source Code Pro字体(zsh)。
@@ -69,7 +67,7 @@ c-basic-offset 4
 | C-x C-b | 列出所有buffer |
 | C-x b | 在buffer之间切换 |
 | M-x "recover-file" | 在crash之后恢复之前编辑的文件 |
-
+| C-x 0 | 关闭窗口 |
 
 光标移动:
 | Key | Func |
@@ -134,4 +132,5 @@ Neo Tree:
 | p        | 上一行                              |
 | g        | Refresh                             |
 | H        | show/hide hidden files/directory    |
-|          |                                     |
+| -        | horizontal-split                    |
+| |        | vertical-split    	                 |
