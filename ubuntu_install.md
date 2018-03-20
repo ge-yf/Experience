@@ -48,7 +48,7 @@ Requires Git 1.7+ and Vim 7.3+
 	sudo apt-get install fasd
 
 	add the follow line in .zshrc
-		sudo apt-get install fasd
+		eval "$(fasd --init auto)"
 
 # cppman #
 
