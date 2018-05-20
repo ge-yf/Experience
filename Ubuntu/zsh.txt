@@ -30,6 +30,9 @@ Solarized dark
 Built-in schemes修改为：
 Solarized
 
+General : Show menubar by default in new terminals : No
+
+
 ******************************************************************
 
 *****************************增加语法高亮**************************
@@ -92,8 +95,25 @@ fi
 ******************************************************************
 
 ******************将zsh的用户名和主机名隐藏******************
-通过在~/.zshrc中添加export DEFAULT_USER=”username”可以隐藏固定的user@hostname信息
+通过在~/.zshrc中添加export DEFAULT_USER="username"可以隐藏固定的user@hostname信息
 
 export DEFAULT_USER=`geyf` // 在.zshrc中添加或者修改默认用户为自己，开启终端后就不会显示自己的用户名信息
 
+******************************************************************
+
+
+**********************将bash主题也修改为agnoster********************
+
+1. cd $HOME
+2. mkdir -p .bash/themes/agnoster-bash
+3. git clone https://github.com/speedenator/agnoster-bash.git .bash/themes/agnoster-bash
+
+4. 将下面额code追加到[.bashrc]中：
+-------------
+export THEME=$HOME/.bash/themes/agnoster-bash/agnoster.bash
+if [[ -f $THEME ]]; then
+    export DEFAULT_USER=`whoami`
+    source $THEME
+fi
+-------------
 ******************************************************************
