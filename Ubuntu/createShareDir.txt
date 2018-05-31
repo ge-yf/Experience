@@ -1,0 +1,4 @@
+1. 安装 samba smaba-client
+2. linux创建共享文件夹
+3. 创建共享用户： smbpasswd -a geyufeng （用户名）
+4. 在Windows上登陆该共享文件夹
