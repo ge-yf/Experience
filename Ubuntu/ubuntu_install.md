@@ -95,6 +95,7 @@ Requires Git 1.7+ and Vim 7.3+
 
 	sudo apt-get install vim
 	curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh
+	sudo apt-get install ctags
 
 # zsh #
 
