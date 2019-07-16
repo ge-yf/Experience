@@ -111,8 +111,6 @@ Requires Git 1.7+ and Vim 7.3+
 
 	https://github.com/clvv/fasd
 
-	sudo add-apt-repository ppa:aacebedo/fasd
-	sudo apt-get update
 	sudo apt-get install fasd
 
 	add the follow line in .zshrc
