@@ -1,5 +1,11 @@
 #### The best editor is neither Emacs nor Vim, it's Emacs *and* Vim! ####
 
+安装CygWin:
+https://www.cygwin.com/
+
+镜像源：
+http://mirrors.sohu.com/cygwin/
+
 
 # 安装 #
 1. 安装Emacs:
@@ -13,6 +19,9 @@
 	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 	添加国内源：
+    
+    .spacemacs文件
+    
 	### 这是原头部
 	(defun dotspacemacs/layers ()
   	"Configuration Layers declaration.
@@ -67,12 +76,27 @@ default-tab-width 4
 c-default-style "k&r"
 c-basic-offset 4
 
-全局auto-complete：
-Add the following contents to .emacs.d/init.el:
---
-(require 'auto-complete)
-(global-auto-complete-mode t)
---
+添加必须的Layer:
+.spacemacs文件中查找dotspacemacs-configuration-layers, 将git， auto-completion的注释删掉。
+然后执行<SPC f e R>
+
+
+自动补全：
+https://github.com/syl20bnr/spacemacs/tree/master/layers/%2Bcompletion/auto-completion
+
+To use this configuration layer, add it to your ~/.spacemacs. 
+You will need to add auto-completion to the existing dotspacemacs-configuration-layers list in this file.
+
+;; 全局auto-complete：
+;; 安装：
+;; https://github.com/auto-complete/auto-complete
+
+;; 使用：
+;; Add the following contents to .emacs.d/init.el:
+;; --
+;; (require 'auto-complete)
+;; (global-auto-complete-mode t)
+;; --
 
 文件操作:
 | Key | Func |
