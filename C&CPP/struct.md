@@ -18,15 +18,15 @@
 
 结构体在函数中的作用不是简便，其最主要的作用就是封装。封装的好处就是可以再次利用。让使用者不必关心这个是什么，只要根据定义使用就可以了。
 
-结构体的大小不是结构体元素单纯相加就行的，因为我们现在主流的计算机使用的都是32Bit字长的CPU，对这类型的CPU取4个字节的数要比取一个字节要高效，也更方便。所以在结构体中每个成员的首地址都是4的整数倍的话，取数据元素时就会相对更高效，这就是内存对齐的由来。每个特定平台上的编译器都有自己的默认“对齐系数”(也叫对齐模数)。程序员可以通过预编译命令#pragmapack(n)，n=1,2,4,8,16来改变这一系数，其中的n就是你要指定的“对齐系数”。
+结构体的大小不是结构体元素单纯相加就行的，因为我们现在主流的计算机使用的都是32Bit字长的CPU，对这类型的CPU取4个字节的数要比取一个字节要高效，也更方便。所以在结构体中每个成员的首地址都是4的整数倍的话，取数据元素时就会相对更高效，这就是内存对齐的由来。每个特定平台上的编译器都有自己的默认“对齐系数”(也叫对齐模数)。程序员可以通过预编译命令[#pragma pack(n)](./#pragmapack.md)，n=1,2,4,8,16来改变这一系数，其中的n就是你要指定的“对齐系数”。
 
 ### 规则
 
-1. 数据成员对齐规则：结构(struct)(或联合(union))的数据成员，第一个数据成员放在offset为0的地方，以后每个数据成员的对齐按照#pragmapack指定的数值和这个数据成员自身长度中，比较小的那个进行。
+1. 数据成员对齐规则：结构(struct)(或联合(union))的数据成员，第一个数据成员放在offset为0的地方，以后每个数据成员的对齐按照[#pragma pack](./#pragmapack.md)指定的数值和这个数据成员自身长度中，比较小的那个进行。
 
-2. 结构(或联合)的整体对齐规则：在数据成员完成各自对齐之后，结构(或联合)本身也要进行对齐，对齐将按照#pragmapack指定的数值和结构(或联合)最大数据成员长度中，比较小的那个进行。
+2. 结构(或联合)的整体对齐规则：在数据成员完成各自对齐之后，结构(或联合)本身也要进行对齐，对齐将按照[#pragma pack](./#pragmapack.md)指定的数值和结构(或联合)最大数据成员长度中，比较小的那个进行。
 
-3. 结合1、2可推断：当#pragmapack的n值等于或超过所有数据成员长度的时候，这个n值的大小将不产生任何效果。
+3. 结合1、2可推断：当[#pragma pack](./#pragmapack.md)的n值等于或超过所有数据成员长度的时候，这个n值的大小将不产生任何效果。
 
 在C语言中，可以定义结构体类型，将多个相关的变量包装成为一个整体使用。在结构体中的变量，可以是相同、部分相同，或完全不同的数据类型。在C语言中，结构体不能包含函数。在面向对象的程序设计中，对象具有状态（属性）和行为，状态保存在成员变量中，行为通过成员方法（函数）来实现。C语言中的结构体只能描述一个对象的状态，不能描述一个对象的行为。在C++中，考虑到C语言到C++语言过渡的连续性，对结构体进行了扩展，C++的结构体可以包含函数，这样，C++的结构体也具有类的功能，与class不同的是，结构体包含的函数默认为public，而不是private。
 
@@ -606,3 +606,261 @@ printf("%d\n",a.sb.c);
 
 ## 占用内存空间
 
+struct结构体，在结构体定义的时候不能申请内存空间，不过如果是结构体变量，声明的时候就可以分配——两者关系就像C++的类与对象，对象才分配内存（不过严格讲，作为代码段，结构体定义部分“.text”真的就不占空间了么？当然，这是另外一个范畴的话题）。
+
+结构体的大小通常（只是通常）是结构体所含变量大小的总和。
+
+### 下边说说不通常的情况
+
+对于结构体中比较小的成员，可能会被强行对齐，造成空间的空置，这和读取内存的机制有关，为了效率。通常32位机按4字节对齐，小于的都当4字节，有连续小于4字节的，可以不着急对齐，等到凑够了整，加上下一个元素超出一个对齐位置，才开始调整，比如3+2或者1+4，后者都需要另起（下边的结构体大小是8bytes），相关例子就多了，不赘述。
+
+```C
+struct s  
+{  
+    char a;  
+    short b;  
+    int c;  
+}
+```
+
+相应的，64位机按8字节对齐。不过对齐不是绝对的，用[#pragma pack()](./#pragmapack.md)可以修改对齐，如果改成1，结构体大小就是实实在在的成员变量大小的总和了。
+
+和C++的类不一样，结构体不可以给结构体内部变量初始化。
+
+如下，为错误示范：
+
+```C
+#include<stdio.h>  
+//直接带变量名
+struct stuff{  
+//      char job[20] = "Programmer";  
+//      char job[];  
+//      int age = 27;  
+//      float height = 185;  
+};
+```
+
+PS：结构体的声明也要注意位置的，作用域不一样。
+
+C++的结构体变量的声明定义和C有略微不同，说白了就是更“面向对象”风格化，要求更低。
+
+## 为什么有些函数的参数是结构体指针型
+
+如果函数的参数比较多，很容易产生“重复C语言代码”，例如：
+
+```C
+
+int get_video(char **name, long *address, int *size, time_t *time, int *alg)
+{
+    ...
+}
+int handle_video(char *name, long address, int size, time_t time, int alg)
+{
+    ...
+}
+int send_video(char *name, long address, int size, time_t time, int alg)
+{
+    ...
+}
+```
+
+上述C语言代码定义了三个函数：get_video() 用于获取一段视频信息，包括：视频的名称，地址，大小，时间，编码算法。
+
+然后 handle_video() 函数根据视频的这些参数处理视频，之后 send_video() 负责将处理后的视频发送出去。下面是一次调用：
+
+```C
+char *name = NULL;
+long address;
+int size, alg;
+time_t time;
+
+get_video(&name, &address, &size, &time, &alg);
+handle_video(name, address, size, time, alg);
+send_video(name, address, size, time, alg);
+```
+
+从上面这段C语言代码来看，为了完成视频的一次“获取”——“处理”——“发送”操作，C语言程序不得不定义多个变量，并且这些变量需要重复写至少三遍。
+
+虽说C语言程序的代码风格因人而异，但是“重复的代码”永远是应尽力避免的。不管怎么说，每次使用这几个函数，都需要定义很多临时变量，总是非常麻烦的。所以，这种情况下，完全可以使用C语言的结构体语法：
+
+```C
+
+struct video_info{
+    char *name;
+    long address;
+    int size;
+    int alg;
+    time_t time;
+};
+```
+
+定义好 video_info 结构体后，上述三个C语言函数的参数可以如下写，请看：
+
+```C
+int get_video(struct video_info *vinfo)
+{
+    ...
+}
+int handle_video(struct video_info *vinfo)
+{
+    ...
+}
+int send_video(struct video_info *vinfo)
+{
+    ...
+}
+
+```
+
+修改后的C语言代码明显精简多了，在函数内部，视频的各个信息可以通过结构体指针 vinfo 访问，例如：
+
+```C
+printf("video name: %s\n", vinfo->name);
+long addr = vinfo->address;
+int size = vinfo->size;
+```
+
+事实上，使用结构体 video_info 封装视频信息的各个参数后，调用这几个修改后的函数也是非常简洁的：
+
+```C
+struct video_info vinfo = {0};
+
+get_video(&vinfo);
+handle_video(&vinfo);
+send_video(&vinfo);
+```
+
+从上述C语言代码可以看出，使用修改后的函数只需定义一个临时变量，整个代码变得非常精简。
+
+修改之前的 handle_video() 和 send_video() 函数原型如下：
+
+```C
+int handle_video(char *name, long address, int size, time_t time, int alg);
+int send_video(char *name, long address, int size, time_t time, int alg);
+```
+
+根据这段C语言代码，我们知道 handle_video() 和 send_video() 函数只需要读取参数信息，并不再修改参数，那为什么使用结构体 video_info 封装数据，修改后的 handle_video() 和 send_video() 函数参数是 struct video_info  *指针型呢?
+
+```C
+int handle_video(struct video_info *vinfo);
+int send_video(struct video_info *vinfo);
+```
+
+既然 handle_video() 和 send_video() 函数只需要读取参数信息，那我们就无需再使用指针型了呀？的确如此，这两个函数的参数直接使用 struct video_info 型也是可以的：
+
+```C
+int handle_video(struct video_info vinfo)
+{
+    ...
+}
+int send_video(struct video_info vinfo)
+{
+    ...
+}
+```
+
+似乎这种写法和使用struct video_info  *指针型参数的区别，无非就是函数内部访问数据的方式改变了而已。但是，如果读者能够想到我们之前讨论过的C语言函数的“栈帧”概念，应该能够发现，使用指针型参数的 handle_video() 和 send_video() 函数效率更好，开销更小。
+
+## 嵌入式开发中，C语言位结构体用途详解
+
+在嵌入式开发中，经常需要表示各种系统状态，位结构体的出现大大方便了我们，尤其是在进行一些硬件层操作和数据通信时。但是在使用位结构体的过程中，是否深入思考一下它的相关属性？是否真正用到它的便利性，来提高系统效率？
+
+下面将进行一些相关实验（这里以项目开发中的实际代码为例）：
+
+### 1.位结构体类型设计
+
+```C
+//data structure except for number structure  
+typedef struct symbol_struct  
+{  
+    uint_32 SYMBOL_TYPE    :5;  //data type,have the affect on "data display type"
+    uint_32 reserved_1     :4;  
+    uint_32 SYMBOL_NUMBER  :7;  //effective data number in one element  
+    uint_32 SYMBOL_ACTIVE  :1;  //symbol active status  
+    uint_32 SYMBOL_INDEX   :8;  //data index in norflash,result is related to "xxx_BASE_ADDR"
+    uint_32 reserved_2     :8;  
+}SYMBOL_STRUCT,_PTR_ SYMBOL_STRUCT_PTR;
+```
+
+分析：这里定义了一个位结构体类型SYMBOL_STRUCT，那么用该类型定义的变量都哪些属性呢？
+
+看下面运行结果：
+
+![位结构体设计1](./resource/struct/struct10.jpg)
+
+WORDS是定义的另一个外层类型定义封装，可以把它当作变量来看待。WORDS变量里前5个数据域的地址都是0x1ffff082c，而reserved_2的地址0x1fff0830,紧接着的PressureState变量是0x1fff0834。
+
+开始以为：reserved_1和SYMBOL_TYPE不在一个地址上，因为他们5+4共9位，超过了1个字节地址，但实际他们共用首地址了；而且reserved_2只定义了8位，竟然实际占用了4个字节（0x1fff0834 - 0x1fff0830），我本来是想让他占用1个字节的。WORDS整体占了8个字节（0x1fff0834 - 0x1fff082c），设计时分析占用5个字节
+
+（SYMBOL_TYPE 1个；reserved_1 1个；SYMBOL_NUMBER+SYMBOL_ACTIVE 1个；SYMBOL_INDEX 1个；reserved_2 1个）。
+
+uint_32  reserved_2   : 8;  占用4个字节，估计是uint_32在起作用，而这里写的8位，只是我使用的有效位数，另外24位空闲，如果在下面再定义一个uint_32 reserved_3   : 8，地址也是一样的，都是以uint_32为单位取地址。
+
+同理，上面的5个变量，共用一个地址就不足为奇了。而且有效位的分配不是连续进行的，例如SYMBOL_TYPE+reserved_1 共9位，超过了一个字节，索性系统就分配两个字节给他们，每人一个；SYMBOL_NUMBER+SYMBOL_ACTIVE 共8位，一个字节就能搞定。
+
+### 2.修改数据结构，验证上述猜想
+
+```C
+//data structure except for number structure  
+typedef struct symbol_struct  
+{  
+    uint_8 SYMBOL_TYPE    :5;  //data type,have the affect on "data display type"
+    uint_8 reserved_1     :4;
+    uint_8 SYMBOL_NUMBER  :7;  //effective data number in one element
+    uint_8 SYMBOL_ACTIVE  :1;  //symbol active status
+    uint_8 SYMBOL_INDEX   :8;  //data index in norflash,result is related to "xxx_BASE_ADDR"
+    uint_8 reserved_2     :8;
+}SYMBOL_STRUCT,_PTR_ SYMBOL_STRUCT_PTR;
+```
+
+地址数据如下：
+
+![位结构体设计2](./resource/struct/struct11.jpg)
+
+当换成uint_8后，可以看到地址空间占用大大减小，reserved_2只占用1个字节(0x1fff069f - 0x1fff069e)，其他变量也都符合上面的结论猜想。但是，注意看上面黄色和红色的语句，总感觉有些勉强，那么我又会想，前两个变量数据域是9位，那么他们实际上是不是真正的独立呢？虽然在uint_8上面他们是不同的地址，在uint_32的时候是不是也是不同的地址空间呢？
+
+### 3.分析结构体内部的数据域是否连续，看下图及结果
+
+![位结构体设计3](./resource/struct/struct12.jpg)
+
+本来假设： 由前2次试验的结论，一共占用8个字节，节空间占用：(2+4)+(4+4)+(2+2+4)+(2+2)+(6)。可是，实际效果并不是想的那样。实际只占用了4个字节，系统并没有按照预想的方式，为RESERVED变量分配4个字节。
+
+**分析：**
+
+这些数据域，整体相加一共32位，占用4个字节(不考虑数据对齐问题)。而实际确实是占用了4个字节，唯一的原因就是：这些数据域以紧凑的方式链接，没有任何空闲位。实际是不是这样呢？
+
+**看下图和结果：**
+
+![位结构体设计4](./resource/struct/struct13.jpg)
+
+里为了验证是否紧凑链接，用到了一个union数据，后面会讲到用union不会对数据组织方式有任何影响，看实际与上次的一样，也能分析出来。
+
+主要是分析第2和第3个数据域是否紧密链接的。OBJECT_ACTIVE_PRE赋值0b00001111，NUMBER_ACTIVE赋值0b00000101，其他变量都是0，看到WORD数值0b1011111000000。分析WORD数据，可以看到这款MCU还是小端格式(高位数据在高端，低位数据在低端，这里不对大小端进行讨论)，断开数据变成(0)10111 11000000，正好是0101+1111，OBJECT_ACTIVE_PRE数据域，跨越了两个字节，并不是刚开始设想的那样。这就印证了上面的紧密链接的结论，也符合数据结果输出。
+
+### 4. 再次实验，分析数据是否紧密链接，看下图和结果
+
+![位结构体设计5](./resource/struct/struct14.jpg)
+
+可以看到，RESERVED数据域已经不再属于4个地址空间内了(0x1fff0518 - 0x1fff051b)，但是他们整体加起来还是32个位域。这说明数据中间肯定有“空隙”存在了，空隙在哪？看一下NUMBER_STATE，如果紧密的话它应该跟NUMBER_ACTIVE在同一个字节地址上，可是他们并不在一块，“空隙”就存在这里。
+
+这两个结构体有什么不一样？数据类型不一致，一个是uint_32，一个是uint_8。综上所述：数据类型影响的是编译器在分配物理空间时的大小单位，uint_32是以4个字节为单位，而后面的位域则是指在已经分配好的物理空间内部再紧凑的方式分配数据位，当物理空间不能满足位域时，那么系统就再次以一定大小单位进行物理空间分配，这个单位就是上面提到的uint_8或者uint_32。
+
+举例：上面uint_32时，这些位域不管是不是在一个字节地址上，如果能够紧凑的分配在一个4字节空间大小上，就直接紧凑分配。如果不能则继续分配(总空间超过4字节)，则再次以4字节空间分配，并把新的位域建立在新的地址空间上(条目1上的就是)。当uint_8时，很明显如果位域不能紧凑的放在一个字节空间上，那么就从新分配新的1字节空间大小，道理是一样的。
+
+### 5. 结构体组合、共用体组合是否影响上述结论
+
+![位结构体设计6](./resource/struct/struct15.jpg)
+
+![位结构体设计7](./resource/struct/struct16.jpg)
+
+可以看到，系统并没有因为位结构体上面有uint_32的4字节变量或者共用体类型，就改变分配策略把位域都挤到4字节之内，看来他们是没有什么实质性联系的。这里把uint_32改成uint_8，或者把位结构体也替换掉，经试验证明，都是没有任何影响的。
+
+**总结：**
+
+1. 在操作位结构体时，要关注变量的位域是否在一个变量类型（uint_32或者uint_8）上，判断占用空间大小
+
+2. 除了位域，还要关注变量定义类型，因为编译器空间分配始终是按类型分配的，位域只是指出了有效位(小于类型占用空间)，而且如果位域大于类型空间，编译器直接报错（如 uint_8  test  :15，可自行实验）。
+
+3. 这两个因素都影响变量占用空间大小，具体可以结合调试窗口，通过地址分配分析判断
+
+4. 最重要的一点：上面的所有结果，都是基于我自己的CodeWarrior10.2和MQX3.8分析出来的，不同的编译环境和操作系统，都可能会有不同的结果；而且即便是环境相同，编译器的配置和优化选项都有可能影响系统处理结果。结论并不重要，主要想告诉大家这一块隐藏陷阱，在以后处理类似问题时，要注意分析避让并掌握方法。
