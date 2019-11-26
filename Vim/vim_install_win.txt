@@ -1,0 +1,7 @@
+1. 安装gvim：
+		https://www.vim.org/download.php
+		
+2. 安装spf13:
+		http://vim.spf13.com/#install
+
+3. 

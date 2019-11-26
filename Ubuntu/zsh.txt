@@ -99,6 +99,13 @@ fi
 
 export DEFAULT_USER="geyf" // 在.zshrc中添加或者修改默认用户为自己，开启终端后就不会显示自己的用户名信息
 
+
+使用ssh远程到linux时，上面的修改就无效了：
+
+将当前主题文件的prompt_context() 函数中的内容注释掉就可以了：
+vim ~/.oh-my-zsh/themes/agnoster.zsh-theme
+
+
 ******************************************************************
 
 
