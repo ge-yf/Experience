@@ -22,17 +22,13 @@ http://mirrors.sohu.com/cygwin/
     
     .spacemacs文件
     
-	### 这是原头部
-	(defun dotspacemacs/layers ()
-  	"Configuration Layers declaration.
-	You should not put any user code in this function besides modifying the variable
-	values."
-	### 从这里开始粘贴下列源
-	(setq-default
-   	configuration-layer--elpa-archives
-   	'(("melpa-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-     ("gnu-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-     ("org-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+	在 dotspacemacs/user-init 中添加 melpa 中国镜像 
+    
+    ;; melpa china mirrors
+    (setq configuration-layer--elpa-archives
+      '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+        ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+        ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
 3. 运行Emacs GUI, 之后Spacemacs会提示选择一些信息后，自动开始安装插件。
 
@@ -44,7 +40,6 @@ http://mirrors.sohu.com/cygwin/
 		2. unzip SourceCodePro_FontsOnly-1.013.zip
 		3. 复制SourceCodePro_FontsOnly-1.013/OTF目录中的所有.otf文件到~/.fonts目录下
 		4. 执行命令 “fc-cache -f -v”
-
 
 # 使用前 #
 `<c-h>t`命令, 查看tutorial, 学会基本用法。

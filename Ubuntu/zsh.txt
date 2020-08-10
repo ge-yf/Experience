@@ -20,6 +20,8 @@ chmod 777 fonts
 直接：
 fc-cache -fv fonts
 
+如果fc-cache找不到，就sudo apt-get install fontconfig
+
 修改终端配置
 将终端的字体修改为Powerline：
 Source Code Pro for Powerline Regular  字号13
