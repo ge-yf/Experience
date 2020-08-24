@@ -1,34 +1,30 @@
-#### The best editor is neither Emacs nor Vim, it's Emacs *and* Vim! ####
-
-安装CygWin:
-https://www.cygwin.com/
-
-镜像源：
-http://mirrors.sohu.com/cygwin/
 
 
-# 安装 #
-1. 安装Emacs:
-	sudo add-apt-repository ppa:kelleyk/emacs
-	sudo apt update
+# Spacemacs
 
-	sudo apt-get install emacs
+The best editor is neither Emacs nor Vim, it's Emacs *and* Vim!
 
-2. 安装Spacemacs：
+## 安装
 
-	git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+### 安装Emacs
 
-	添加国内源：
-    
-    .spacemacs文件
-    
-	在 dotspacemacs/user-init 中添加 melpa 中国镜像 
-    
-    ;; melpa china mirrors
-    (setq configuration-layer--elpa-archives
-      '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-        ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-        ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+sudo add-apt-repository ppa:kelleyk/emacs
+sudo apt update	
+sudo apt-get install emacs
+
+### 安装Spacemacs
+
+1. git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+
+2. 添加国内源：   
+.spacemacs文件   
+在 dotspacemacs/user-init 中添加 melpa 中国镜像 
+
+	;; melpa china mirrors
+	(setq configuration-layer--elpa-archives
+	  '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+	    ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+	    ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
 
 3. 运行Emacs GUI, 之后Spacemacs会提示选择一些信息后，自动开始安装插件。
 
@@ -41,10 +37,53 @@ http://mirrors.sohu.com/cygwin/
 		3. 复制SourceCodePro_FontsOnly-1.013/OTF目录中的所有.otf文件到~/.fonts目录下
 		4. 执行命令 “fc-cache -f -v”
 
-# 使用前 #
+
+
+#### 使用 cnfonts 配置中英文对齐
+
+使用 org-table 时中英文混排时字体需要对齐, 使用 [cnfonts ](https://github.com/tumashu/cnfonts) 项目可以解决这一问题.
+
+1. dotspacemacs-additional-packages` 中添加 `cnfonts
+
+```
+dotspacemacs-additional-packages
+'(
+    cnfonts
+)
+```
+
+2. `dotspacemacs/user-config` 中添加
+
+```
+(defun dotspacemacs/user-config ()
+  "Configuration function for user code.
+This function is called at the very end of Spacemacs initialization after
+layers configuration.
+This is the place where most of your configurations should be done. Unless it is
+explicitly specified that a variable should be set before a package is loaded,
+you should place your code here."
+  ;; Chinese and English fonts alignment
+  (use-package cnfonts
+    :config
+    (cnfonts-enable)
+    (setq cnfonts-use-face-font-rescale t)
+    )
+  )
+```
+
+## 使用前
+
 `<c-h>t`命令, 查看tutorial, 学会基本用法。
 
-# 使用 #
+## 使用
+
+
+
+参考博客：
+
+http://mpwang.github.io/2019/02/06/productivity/
+
+
 
 显示行号：
 .spacemacs文件中查找dotspacemacs-line-numbers。
